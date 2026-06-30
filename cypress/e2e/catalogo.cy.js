@@ -1,4 +1,4 @@
-const { users, login } = require('../support/saucedemo');
+const { users, login, captureTestScreenshot } = require('../support/saucedemo');
 
 describe('SauceDemo - Catalogo e produto', () => {
   beforeEach(() => {
@@ -7,6 +7,7 @@ describe('SauceDemo - Catalogo e produto', () => {
 
   it('CT-06 Exibicao do catalogo', () => {
     cy.get('.inventory_item').should('have.length.at.least', 1);
+    captureTestScreenshot();
   });
 
   it('CT-07 Ordenacao por nome crescente', () => {
@@ -16,6 +17,7 @@ describe('SauceDemo - Catalogo e produto', () => {
       const sorted = [...names].sort((a, b) => a.localeCompare(b));
       expect(names).to.deep.equal(sorted);
     });
+    captureTestScreenshot();
   });
 
   it('CT-08 Ordenacao por menor preco', () => {
@@ -25,11 +27,13 @@ describe('SauceDemo - Catalogo e produto', () => {
       const sorted = [...prices].sort((a, b) => a - b);
       expect(prices).to.deep.equal(sorted);
     });
+    captureTestScreenshot();
   });
 
   it('CT-09 Acesso aos detalhes de produto', () => {
     cy.get('.inventory_item_name').first().click();
     cy.get('.inventory_details_name').should('be.visible');
     cy.get('.inventory_details_price').should('be.visible');
+    captureTestScreenshot();
   });
 });

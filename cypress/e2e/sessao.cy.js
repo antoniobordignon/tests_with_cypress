@@ -1,4 +1,4 @@
-const { users, login } = require('../support/saucedemo');
+const { users, login, captureTestScreenshot } = require('../support/saucedemo');
 
 describe('SauceDemo - Sessao', () => {
   it('CT-18 Logout', () => {
@@ -7,5 +7,6 @@ describe('SauceDemo - Sessao', () => {
     cy.get('#logout_sidebar_link').click();
     cy.url().should('eq', `${Cypress.config('baseUrl')}/`);
     cy.get('#login-button').should('be.visible');
+    captureTestScreenshot();
   });
 });

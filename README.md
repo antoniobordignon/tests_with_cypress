@@ -8,7 +8,7 @@ Suíte automatizada em JavaScript e Cypress baseada no relatório `Relatório de
 npm install
 npm run cypress:open
 ```
-1
+
 Ou em modo headless:
 
 ```bash
