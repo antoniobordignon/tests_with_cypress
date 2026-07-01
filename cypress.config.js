@@ -1,5 +1,6 @@
 module.exports = {
   e2e: {
+    chromeWebSecurity: false,
     baseUrl: 'https://www.saucedemo.com',
     specPattern: 'cypress/e2e/**/*.cy.js',
     supportFile: 'cypress/support/e2e.js',

@@ -11,7 +11,7 @@ describe('SauceDemo - Catalogo e produto', () => {
   });
 
   it('CT-07 Ordenacao por nome crescente', () => {
-    cy.get('[data-test="product_sort_container"]').select('Name (A to Z)');
+    cy.get('[data-test="product-sort-container"]').select('Name (A to Z)');
     cy.get('.inventory_item_name').then(($items) => {
       const names = [...$items].map((el) => el.innerText.trim());
       const sorted = [...names].sort((a, b) => a.localeCompare(b));
@@ -21,7 +21,7 @@ describe('SauceDemo - Catalogo e produto', () => {
   });
 
   it('CT-08 Ordenacao por menor preco', () => {
-    cy.get('[data-test="product_sort_container"]').select('Price (low to high)');
+    cy.get('[data-test="product-sort-container"]').select('Price (low to high)');
     cy.get('.inventory_item_price').then(($items) => {
       const prices = [...$items].map((el) => Number(el.innerText.replace('$', '')));
       const sorted = [...prices].sort((a, b) => a - b);
